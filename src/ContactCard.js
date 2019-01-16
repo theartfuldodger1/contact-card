@@ -1,40 +1,34 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-//import ReactDOM from 'react-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import faker from "faker";
 
-class ContactCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: props.name,
-            mobile: props.mobile,
-            email: props.email
-        }
-        setTimeout(this.updateName.bind(this), 2000)
-    }
-    //React says we have to define render!!!
-    render() {
-        return (
-            <div id={this.props.name }>{this.props.message}</div>
-        );
-    }
-};
+/*Define a ‘ContactCard’ component that takes in a contact name,
+mobile number, work phone number, and email as properties and
+displays the results in a visually appealing way*/
 
-const ContactCard1 = props => {
-    return (
-        <div className="contact">
-            <div>
-
-            </div>
+const ContactCard = props => {
+  return (
+    <div className="ui card">
+      <div className="image">
+        <img alt="avatar" src={faker.image.avatar()} />
+      </div>
+      <div className="contactInfo">
+        <div className="userName">{props.userName}</div>
+        <div className="mobile">Mobile: {props.mobileNum}</div>
+        <div className="work">Work: {props.workNum}</div>
+        <div className="meta">
+          <span className="email">Email: {props.emailAddy}</span>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 ContactCard.PropTypes = {
-    name: PropTypes.string.isRequired,
-    mobile: PropTypes.number.isRequired,
-    email: PropTypes.string.isRequired
+  userName: PropTypes.string.isRequired,
+  mobileNum: PropTypes.string.isRequired,
+  workNum: PropTypes.string.isRequired,
+  emailAddy: PropTypes.string.isRequired
+};
 
-}
-
-export default ContactCard1;
+export default ContactCard;
