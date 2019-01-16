@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import faker from "faker";
+import PropTypes from "prop-types"; //npm install prop-types
+import faker from "faker"; //npm install --save faker
 
 /*Define a ‘ContactCard’ component that takes in a contact name,
 mobile number, work phone number, and email as properties and
