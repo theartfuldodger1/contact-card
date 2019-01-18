@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types"; //npm install prop-types
 import faker from "faker"; //npm install --save faker
 
@@ -6,23 +6,25 @@ import faker from "faker"; //npm install --save faker
 mobile number, work phone number, and email as properties and
 displays the results in a visually appealing way*/
 
-const ContactCard = props => {
-  return (
-    <div className="ui card">
-      <div className="image">
-        <img alt="avatar" src={faker.image.avatar()} />
-      </div>
-      <div className="contactInfo">
-        <div className="userName">{props.userName}</div>
-        <div className="mobile">Mobile: {props.mobileNum}</div>
-        <div className="work">Work: {props.workNum}</div>
-        <div className="meta">
-          <span className="email">Email: {props.emailAddy}</span>
+class ContactCard extends Component {
+  render() {
+    return (
+      <div className="ui card">
+        <div className="image">
+          <img alt="avatar" src={faker.image.avatar()} />
+        </div>
+        <div className="contactInfo">
+          <div className="userName">{this.props.userName}</div>
+          <div className="mobile">Mobile: {this.props.mobileNum}</div>
+          <div className="work">Work: {this.props.workNum}</div>
+          <div className="meta">
+            <span className="email">Email: {this.props.emailAddy}</span>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 ContactCard.PropTypes = {
   userName: PropTypes.string.isRequired,
